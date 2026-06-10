@@ -1,0 +1,34 @@
+Based on the detailed diagnostic report you provided, it's clear that this is a **platform-side issue with Replit's internal architecture** (specifically the `river` service), and not a local `git` or merge conflict problem. The `INVALID_REFERENCE` error indicates that Replit's infrastructure cannot resolve the upstream reference for your main app via their internal SSH routing.
+
+Since Replit's internal `startGitRebase()` is a black box and we cannot fix their internal SSH routing or metadata link, here is the proposed solution to bypass the broken Replit platform feature and safely merge your work:
+
+### 1. Bypass Replit's Rebase (Use GitHub Instead)
+Since your local working tree is clean and your local `main` branch has the 102 commits safely stored, you can bypass the Replit `river` service entirely by using standard Git to push to your GitHub remote. 
+
+Looking at your remotes, you have an `origin` and a `main-repl` repository. You should push your local `main` branch to GitHub:
+
+```bash
+# Push your 102 local commits to your GitHub fork/origin
+git push origin main
+```
+*If you have direct write access to the main app's repository on GitHub, you can push directly to `main-repl` or open a Pull Request on GitHub to merge these 102 commits into the main application.*
+
+### 2. Clean Up the Orphaned Replit Remotes
+The 11 `subrepl-*` remotes are polluting your git config due to the repeated Replit service failures. You can safely prune them from your local repository with the following command:
+
+```powershell
+# For Windows PowerShell
+git remote | Where-Object { $_ -match '^subrepl-' } | ForEach-Object { git remote remove $_ }
+
+# Or if using a Bash shell in Replit
+for r in $(git remote | grep '^subrepl-'); do git remote remove "$r"; done
+```
+
+### 3. Escalate to Replit Support
+If you specifically rely on the internal Replit fork/sub-repl relationship (for instance, if the main app isn't connected to GitHub), you will need to escalate this to Replit Support. 
+
+You should send them the exact error message and SSH URL:
+> **Subject**: `river` service startGitRebase failing with INVALID_REFERENCE
+> **Message**: Replit's `startGitRebase()` is failing with `Error in river service (git - rebaseOnMainRepl), code: INVALID_REFERENCE` when trying to fetch from `git+ssh://git@ssh.worf.replit.dev:/home/runner/workspace`. My sub-repl link metadata appears broken as I am accumulating orphaned `subrepl-*` remotes on each attempt.
+
+**Summary:** Your code is safe locally. Push your branch directly to GitHub to save your 102 commits and merge them via GitHub Pull Requests, avoiding Replit's broken internal rebase tool entirely. Let me know if you would like me to help you run the git commands to push to your remote!
