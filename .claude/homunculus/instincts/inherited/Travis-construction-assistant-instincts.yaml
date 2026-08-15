@@ -1,0 +1,318 @@
+# Instincts generated from https://github.com/ai1auslutions/Travis-construction-assistant
+# Generated: 2026-07-08T14:17:26.645Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: Travis-construction-assistant-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/ai1auslutions/Travis-construction-assistant
+---
+
+# Travis Construction Assistant Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: feat
+
+## Evidence
+
+- 1 commits analyzed
+- Detected conventional commit pattern
+- Examples: feat: wire CodeRabbit + Copilot review bots (v5)
+
+---
+id: Travis-construction-assistant-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/ai1auslutions/Travis-construction-assistant
+---
+
+# Travis Construction Assistant Commit Length
+
+## Action
+
+Keep commit messages concise (~48 characters)
+
+## Evidence
+
+- Average commit message length: 48 chars
+- Based on 1 commits
+
+---
+id: Travis-construction-assistant-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/ai1auslutions/Travis-construction-assistant
+---
+
+# Travis Construction Assistant Naming Files
+
+## Action
+
+Use kebab-case naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: kebab-case
+
+---
+id: Travis-construction-assistant-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/ai1auslutions/Travis-construction-assistant
+---
+
+# Travis Construction Assistant Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: Travis-construction-assistant-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/ai1auslutions/Travis-construction-assistant
+---
+
+# Travis Construction Assistant Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: Travis-construction-assistant-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/ai1auslutions/Travis-construction-assistant
+---
+
+# Travis Construction Assistant Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: travis-construction-assistant-instinct-file-naming
+trigger: "When creating a new file"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: ai1auslutions/Travis-construction-assistant
+---
+
+# Travis Construction Assistant Instinct File Naming
+
+## Action
+
+Name the file using kebab-case
+
+## Evidence
+
+- Pattern in namingConventions.files
+
+---
+id: travis-construction-assistant-instinct-function-naming
+trigger: "When defining a new function"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: ai1auslutions/Travis-construction-assistant
+---
+
+# Travis Construction Assistant Instinct Function Naming
+
+## Action
+
+Use camelCase for the function name
+
+## Evidence
+
+- Pattern in namingConventions.functions
+
+---
+id: travis-construction-assistant-instinct-class-naming
+trigger: "When defining a new class"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: ai1auslutions/Travis-construction-assistant
+---
+
+# Travis Construction Assistant Instinct Class Naming
+
+## Action
+
+Use PascalCase for the class name
+
+## Evidence
+
+- Pattern in namingConventions.classes
+
+---
+id: travis-construction-assistant-instinct-constant-naming
+trigger: "When defining a constant"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: ai1auslutions/Travis-construction-assistant
+---
+
+# Travis Construction Assistant Instinct Constant Naming
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for the constant name
+
+## Evidence
+
+- Pattern in namingConventions.constants
+
+---
+id: travis-construction-assistant-instinct-import-style
+trigger: "When importing modules"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: ai1auslutions/Travis-construction-assistant
+---
+
+# Travis Construction Assistant Instinct Import Style
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- Pattern in importStyle
+
+---
+id: travis-construction-assistant-instinct-export-style
+trigger: "When exporting modules or functions"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: ai1auslutions/Travis-construction-assistant
+---
+
+# Travis Construction Assistant Instinct Export Style
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- Pattern in exportStyle
+
+---
+id: travis-construction-assistant-instinct-git-commit-format
+trigger: "When writing a commit message"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: ai1auslutions/Travis-construction-assistant
+---
+
+# Travis Construction Assistant Instinct Git Commit Format
+
+## Action
+
+Use the conventional commit format with 'feat' as the prefix for features
+
+## Evidence
+
+- Seen in commit: 'feat: wire CodeRabbit + Copilot review bots (v5)'
+- Pattern in commits.prefixes
+
+---
+id: travis-construction-assistant-instinct-test-location
+trigger: "When adding or updating tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: ai1auslutions/Travis-construction-assistant
+---
+
+# Travis Construction Assistant Instinct Test Location
+
+## Action
+
+Place test files in a separate directory from source files
+
+## Evidence
+
+- Pattern in architecture.testLocation
+
+---
+id: travis-construction-assistant-instinct-workflow-coderabbit
+trigger: "When configuring CI/CD workflows"
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: ai1auslutions/Travis-construction-assistant
+---
+
+# Travis Construction Assistant Instinct Workflow Coderabbit
+
+## Action
+
+Include a workflow file named '.github/workflows/coderabbit-trigger.yml' for CodeRabbit integration
+
+## Evidence
+
+- Pattern in architecture.configFiles: '.github/workflows/coderabbit-trigger.yml'
+
+---
+id: travis-construction-assistant-instinct-workflow-copilot
+trigger: "When configuring CI/CD workflows"
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: ai1auslutions/Travis-construction-assistant
+---
+
+# Travis Construction Assistant Instinct Workflow Copilot
+
+## Action
+
+Include a workflow file named '.github/workflows/copilot-review.yml' for Copilot review integration
+
+## Evidence
+
+- Pattern in architecture.configFiles: '.github/workflows/copilot-review.yml'
+
